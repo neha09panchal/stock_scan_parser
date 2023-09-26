@@ -14,6 +14,9 @@ class ValuesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var numbers = criteriaObject?.values;
+    numbers?.sort();
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -120,7 +123,7 @@ class ValuesScreen extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: padding16),
                             child: Text(
-                              criteriaObject?.values[index].toString() ?? '',
+                              numbers?[index].toString() ?? '',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: font20,
