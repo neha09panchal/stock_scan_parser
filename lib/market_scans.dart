@@ -25,8 +25,8 @@ class _MarketScansState extends State<MarketScans> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(
-        16.0,
+      padding: EdgeInsets.all(
+        padding16,
       ),
       child: FutureBuilder<ScanResponseList>(
         future: scanResponse,
@@ -61,13 +61,15 @@ class _MarketScansState extends State<MarketScans> {
                         child: ListTile(
                           title: Text(
                             snapshot.data?.scanResponses?[index].name ?? '',
-                            style: const TextStyle(
+                            style: TextStyle(
                               decoration: TextDecoration.underline,
+                              fontSize: font20,
                             ),
                           ),
                           subtitle: Text(
                             snapshot.data?.scanResponses?[index].tag ?? '',
                             style: TextStyle(
+                              fontSize: font15,
                               decoration: TextDecoration.underline,
                               color: ((snapshot.data?.scanResponses?[index]
                                               .color ??

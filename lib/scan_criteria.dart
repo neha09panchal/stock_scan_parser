@@ -21,16 +21,20 @@ class ScanCriteria extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: SafeArea(
-        child: Scaffold(
-          body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: padding16,
+            right: padding16,
+            top: padding30,
+          ),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: double.maxFinite,
-                height: height120,
+                height: height170,
                 color: Colors.blue,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
@@ -45,7 +49,7 @@ class ScanCriteria extends StatelessWidget {
                       Text(
                         name,
                         style: TextStyle(
-                          fontSize: font28,
+                          fontSize: font24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -56,7 +60,7 @@ class ScanCriteria extends StatelessWidget {
                           color: (textColor == 'green')
                               ? Colors.green
                               : Colors.red,
-                          fontSize: font15,
+                          fontSize: font20,
                         ),
                       ),
                     ],
@@ -98,7 +102,7 @@ class ScanCriteria extends StatelessWidget {
                         'and',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: font10,
+                          fontSize: font15,
                         ),
                       ),
                     );
@@ -147,8 +151,9 @@ Widget displayValues(
           text: variable.the1?.type == 'indicator'
               ? '(${variable.the1?.defaultValue})'
               : '(${variable.the1?.values[0]})',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.purple,
+            fontSize: font20,
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
@@ -169,8 +174,9 @@ Widget displayValues(
           text: variable.the2?.type == 'indicator'
               ? '(${variable.the2?.defaultValue})'
               : '(${variable.the2?.values[0]})',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.purple,
+            fontSize: font20,
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
@@ -191,8 +197,9 @@ Widget displayValues(
           text: variable.the3?.type == 'indicator'
               ? '(${variable.the3?.defaultValue})'
               : '(${variable.the3?.values[0]})',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.purple,
+            fontSize: font20,
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
@@ -213,8 +220,9 @@ Widget displayValues(
           text: variable.the4?.type == 'indicator'
               ? '(${variable.the4?.defaultValue})'
               : '(${variable.the4?.values[0]})',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.purple,
+            fontSize: font20,
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
@@ -231,7 +239,11 @@ Widget displayValues(
       );
     } else {
       textSpanStr.add(
-        TextSpan(text: element),
+        TextSpan(
+            text: element,
+            style: TextStyle(
+              fontSize: font20,
+            )),
       );
     }
   }

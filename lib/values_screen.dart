@@ -17,9 +17,9 @@ class ValuesScreen extends StatelessWidget {
     var numbers = criteriaObject?.values;
     numbers?.sort();
 
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: EdgeInsets.only(
             top: padding50,
             left: padding16,
@@ -68,20 +68,15 @@ class ValuesScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             if (criteriaObject!.parameterName!.isNotEmpty)
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  top: padding8,
-                                ),
-                                child: Text(
-                                  (criteriaObject!.parameterName![0]
-                                          .toUpperCase() +
-                                      criteriaObject!.parameterName!
-                                          .substring(1)),
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    decoration: TextDecoration.none,
-                                    fontSize: font20,
-                                  ),
+                              Text(
+                                (criteriaObject!.parameterName![0]
+                                        .toUpperCase() +
+                                    criteriaObject!.parameterName!
+                                        .substring(1)),
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  decoration: TextDecoration.none,
+                                  fontSize: font20,
                                 ),
                               ),
                             SizedBox(
@@ -92,7 +87,9 @@ class ValuesScreen extends StatelessWidget {
                                       criteriaObject?.defaultValue.toString() ??
                                           '',
                                 style: TextStyle(
-                                    fontSize: font20, color: Colors.black),
+                                  fontSize: font20,
+                                  color: Colors.black,
+                                ),
                                 decoration: InputDecoration(
                                   isDense: true,
                                   contentPadding: EdgeInsets.symmetric(
@@ -114,27 +111,28 @@ class ValuesScreen extends StatelessWidget {
                 )
               ] else ...[
                 ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: criteriaObject?.values.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: padding16),
-                            child: Text(
-                              numbers?[index].toString() ?? '',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: font20,
-                              ),
+                  shrinkWrap: true,
+                  itemCount: criteriaObject?.values.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: padding16),
+                          child: Text(
+                            numbers?[index].toString() ?? '',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: font20,
                             ),
                           ),
-                          const Separator(),
-                        ],
-                      );
-                    })
-              ]
+                        ),
+                        const Separator(),
+                      ],
+                    );
+                  },
+                ),
+              ],
             ],
           ),
         ),
