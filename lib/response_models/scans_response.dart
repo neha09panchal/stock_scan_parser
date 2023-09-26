@@ -3,8 +3,6 @@ class ScanResponseList {
 
   ScanResponseList({this.scanResponses});
 
-  // factory ScanResponseList.fromJson(List<dynamic> json) => ScanResponseList()
-
   factory ScanResponseList.fromJson(List<dynamic> parsedJson) {
     var scansList = (parsedJson);
     List<ScansResponse> listOfScanResponse =
